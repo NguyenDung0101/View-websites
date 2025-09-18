@@ -1,17 +1,23 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink } from "lucide-react"
-import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
-  name: string
-  url: string
-  description: string
-  image: string
-  tags?: string[] // Added optional tags prop
+  name: string;
+  url: string;
+  description: string;
+  image: string;
+  tags?: string[]; // Added optional tags prop
 }
 
-export function ProjectCard({ name, url, description, image, tags }: ProjectCardProps) {
+export function ProjectCard({
+  name,
+  url,
+  description,
+  image,
+  tags,
+}: ProjectCardProps) {
   return (
     <Card className="group transition-all duration-300 hover:shadow-xl hover:scale-[1.02] border-border/50 hover:border-primary/20 rounded-2xl overflow-hidden bg-card">
       <div className="relative h-48 overflow-hidden">
@@ -29,10 +35,19 @@ export function ProjectCard({ name, url, description, image, tags }: ProjectCard
           <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors text-balance">
             {name}
           </h3>
-          <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
+          <a
+            href={`https://${url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center p-1 rounded-md hover:bg-muted/50 transition-colors"
+          >
+            <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+          </a>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4 text-pretty">{description}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4 text-pretty">
+          {description}
+        </p>
 
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mb-4">
@@ -54,5 +69,5 @@ export function ProjectCard({ name, url, description, image, tags }: ProjectCard
         </a>
       </CardContent>
     </Card>
-  )
+  );
 }
