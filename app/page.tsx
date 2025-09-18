@@ -2,7 +2,6 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ProjectCard } from "@/components/project-card";
 import { HeroSection } from "@/components/hero-section";
-import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 
 const projects = [
@@ -62,8 +61,6 @@ export default function Home() {
       <Header />
 
       <HeroSection />
-
-      <AboutSection />
 
       <section id="projects" className="py-20 bg-muted/30">
         <div className="max-w-6xl mx-auto px-6">
